@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SchoolController;
 
 Route::get('/', function () {
 
@@ -41,3 +43,8 @@ Route::middleware(['auth', 'role:Bursar'])->get('/bursar/dashboard', function ()
     return response('Bursar Dashboard', 200);
 })->name('bursar.dashboard');
 
+
+
+Route::middleware(['auth', 'superadmin'])->group(function () {
+Route::resource('schools', SchoolController::class);
+});

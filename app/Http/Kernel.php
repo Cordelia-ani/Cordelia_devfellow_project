@@ -32,5 +32,10 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
 
         'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'superadmin' => \App\Http\Middleware\SuperAdmin::class,
     ];
+
+    
+
+
 }
